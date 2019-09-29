@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ALERT_TYPES_ARRAY } from './btp-alert.constant';
+import { ALERT_TYPES_ARRAY, INITIAL_ALERT_MESSAGE } from './btp-alert.constant';
 import { BOOTSTRAP_GENERIC_TYPES_01 } from 'src/app/components/settings/enums';
 
 @Component({
@@ -10,6 +10,7 @@ import { BOOTSTRAP_GENERIC_TYPES_01 } from 'src/app/components/settings/enums';
 export class BtpAlertComponent implements OnInit {
 
   @Input() type: BOOTSTRAP_GENERIC_TYPES_01 = BOOTSTRAP_GENERIC_TYPES_01.PRIMARY;
+  @Input() alertMessage: string = INITIAL_ALERT_MESSAGE;
 
   constructor() { }
 
@@ -23,6 +24,10 @@ export class BtpAlertComponent implements OnInit {
       return '';
     }
     return `alert alert-${type}`;
+  }
+
+  public resetAlertMessage() {
+    console.log('resetting alert message');
   }
 
 }
