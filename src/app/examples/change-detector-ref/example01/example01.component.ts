@@ -1,5 +1,6 @@
-import { Component, OnInit, ViewChild, AfterViewInit, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit, ChangeDetectorRef, Inject } from '@angular/core';
 import { BtpAlertComponent } from 'src/app/components/basic-components/alerts/btp-alert/btp-alert.component';
+import { DOCUMENT } from '@angular/common';
 
 @Component({
   selector: 'bz-example01',
@@ -14,9 +15,14 @@ export class Example01Component implements OnInit, AfterViewInit {
 
   constructor(
     private changeDetectionRef: ChangeDetectorRef,
+    @Inject(DOCUMENT) private document: Document
   ) { }
 
   ngOnInit() {
+    console.log('this.document: ', this.document);
+    const titleElement = this.document.querySelector('.js-example01-title');
+    console.log('titleElement: ', titleElement);
+    titleElement.innerHTML = 'nuevo titulo';
   }
 
   ngAfterViewInit() {
