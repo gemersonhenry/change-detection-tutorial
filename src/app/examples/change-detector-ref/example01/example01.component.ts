@@ -12,4 +12,8 @@ export class Example01Component implements OnInit {
   ngOnInit() {
   }
 
+  public buttonClick($event) {
+    console.log($event);
+  }
+
 }
